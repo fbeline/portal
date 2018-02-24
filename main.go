@@ -4,11 +4,10 @@ import (
 	"fmt"
 	"github.com/urfave/cli"
 	"os"
-	"portal/storage"
 )
 
 func main() {
-	ds := storage.Create()
+	s := NewStorage()
 	app := cli.NewApp()
 	app.Name = "portal"
 	app.Usage = "With it, you can create your own portals."
@@ -20,7 +19,7 @@ func main() {
 			Aliases: []string{"s"},
 			Usage:   "store directory",
 			Action: func(c *cli.Context) error {
-				ds.Add(c.Args().First())
+				s.Add(c.Args().First())
 				return nil
 			},
 		},
@@ -29,14 +28,14 @@ func main() {
 			Aliases: []string{"l"},
 			Usage:   "list stored directories",
 			Action: func(c *cli.Context) error {
-				fmt.Println(ds.List())
+				fmt.Println(s.ToString())
 				return nil
 			},
 		},
 	}
 
 	app.Action = func(c *cli.Context) error {
-		path, err := ds.Match(c.Args().First())
+		path, err := Match(s.directories, c.Args().First())
 		if err == nil {
 			fmt.Print(path)
 		} else {
