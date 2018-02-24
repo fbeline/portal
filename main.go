@@ -38,8 +38,6 @@ func main() {
 		path, err := Match(s.directories, c.Args().First())
 		if err == nil {
 			fmt.Print(path)
-		} else {
-			fmt.Println(err)
 		}
 		return err
 	}
