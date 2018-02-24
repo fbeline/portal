@@ -52,6 +52,8 @@ preexec() { portal s $(pwd) }
 
 ## Usage
 
+*Directories must be visited first to portal save it.*
+
 Jump to a directory that contains `down`
 
 ```
