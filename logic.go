@@ -31,7 +31,7 @@ func Compute(directories map[string]dir, path string) {
 		nd.Score = nd.Score + 1
 		directories[path] = nd
 	} else {
-		directories[path] = dir{path, name, 0}
+		directories[path] = dir{path, name, 1}
 	}
 }
 
@@ -51,6 +51,6 @@ func storagePath() string {
 
 func isValidMatch(path string, target string, targetScore int, score int) bool {
 	return path != "" &&
-		strings.Contains(target, path) &&
+		strings.Contains(strings.ToLower(target), strings.ToLower(path)) &&
 		targetScore > score
 }
