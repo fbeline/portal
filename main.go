@@ -4,11 +4,10 @@ import (
 	"fmt"
 	"github.com/urfave/cli"
 	"os"
-	"portal/storage"
 )
 
 func main() {
-	ds := storage.Create()
+	ds := NewStorage()
 	app := cli.NewApp()
 	app.Name = "portal"
 	app.Usage = "With it, you can create your own portals."
