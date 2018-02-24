@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-type Disk struct {
+type Storage struct {
 	directories map[string]dir
 }
 
@@ -15,8 +15,8 @@ type dir struct {
 	Score int
 }
 
-func NewStorage() *Disk {
-	d := Disk{}
+func NewStorage() *Storage {
+	d := Storage{}
 	err := d.load()
 	if err != nil {
 		d.directories = make(map[string]dir)
@@ -24,36 +24,36 @@ func NewStorage() *Disk {
 	return &d
 }
 
-func (d *Disk) Add(path string) {
-	Compute(d.directories, path)
-	d.persist()
+func (s *Storage) Add(path string) {
+	Compute(s.directories, path)
+	s.persist()
 }
 
-func (d Disk) List() []string {
+func (s Storage) List() []string {
 	var res []string
-	for _, el := range d.directories {
+	for _, el := range s.directories {
 		res = append(res, el.Path)
 	}
 	return res
 }
 
-func (d *Disk) load() error {
+func (s *Storage) load() error {
 	var directories map[string]dir
 	file, err := os.Open(storagePath())
 	if err == nil {
 		decoder := gob.NewDecoder(file)
 		err = decoder.Decode(&directories)
-		d.directories = directories
+		s.directories = directories
 	}
 	file.Close()
 	return err
 }
 
-func (d Disk) persist() error {
+func (s Storage) persist() error {
 	file, err := os.Create(storagePath())
 	if err == nil {
 		encoder := gob.NewEncoder(file)
-		encoder.Encode(d.directories)
+		encoder.Encode(s.directories)
 	}
 	file.Close()
 	return err
