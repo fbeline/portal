@@ -1,6 +1,6 @@
 # [p]ortal
 
-portal is a file system navigation tool.
+portal is a file system navigation tool inspired on python project [autojump](https://github.com/wting/autojump).
 portal record your terminal usage and fast jump to your require location.
 
 ![portal-usage](https://user-images.githubusercontent.com/5730881/36635478-12970294-1994-11e8-9bb2-ef1e0b6cfc06.gif)
@@ -15,7 +15,6 @@ portal record your terminal usage and fast jump to your require location.
 ```
 go get github.com/fbeline/portal
 ```
-
 copy the following code to your bashrc or zshrc file.
 
 ### bash
@@ -47,7 +46,6 @@ function p() {
         false
     fi
 }
-
 preexec() { portal s $(pwd) }
 ```
 
