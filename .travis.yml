@@ -1,0 +1,9 @@
+language: go
+
+go:
+  - master
+
+script:
+    - test -z $(gofmt -s -l $GO_FILES)
+    - go test
+    - gocyclo -over 19 $GO_FILES
