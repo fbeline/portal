@@ -35,7 +35,7 @@ func main() {
 	}
 
 	app.Action = func(c *cli.Context) error {
-		path, err := ds.Match(c.Args().First())
+		path, err := Match(ds.directories, c.Args().First())
 		if err == nil {
 			fmt.Print(path)
 		} else {

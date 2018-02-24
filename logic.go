@@ -6,11 +6,11 @@ import (
 	"strings"
 )
 
-func (d Disk) Match(path string) (string, error) {
+func Match(directories map[string]dir, path string) (string, error) {
 	result := dir{Score: -1}
-	for k := range d.directories {
-		if isValidMatch(path, k, d.directories[k].Score, result.Score) {
-			result = d.directories[k]
+	for k := range directories {
+		if isValidMatch(path, k, directories[k].Score, result.Score) {
+			result = directories[k]
 		}
 	}
 
