@@ -1,6 +1,7 @@
-# [p]ortal
+# [p]ortal [![Build Status](https://travis-ci.org/fbeline/portal.svg?branch=master)](https://travis-ci.org/fbeline/portal)
 
 portal is a file system navigation tool inspired on python project [autojump](https://github.com/wting/autojump).
+
 portal record your terminal usage and fast jump to your desired location.
 
 ![portal-demo](https://user-images.githubusercontent.com/5730881/36635707-9abe098e-1998-11e8-970c-983e22e3289d.gif)
