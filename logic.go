@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"os/user"
+	"strconv"
 	"strings"
 )
 
@@ -32,6 +33,15 @@ func Compute(directories map[string]dir, path string) {
 	} else {
 		directories[path] = dir{path, name, 0}
 	}
+}
+
+func PrettyList(directories map[string]dir) []string {
+	var res []string
+	for _, el := range directories {
+		line := el.Path + " : " + strconv.Itoa(el.Score)
+		res = append(res, line)
+	}
+	return res
 }
 
 func storagePath() string {

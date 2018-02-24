@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/gob"
 	"os"
+	"strings"
 )
 
 type Storage struct {
@@ -29,12 +30,8 @@ func (s *Storage) Add(path string) {
 	s.persist()
 }
 
-func (s Storage) List() []string {
-	var res []string
-	for _, el := range s.directories {
-		res = append(res, el.Path)
-	}
-	return res
+func (s Storage) ToString() string {
+	return strings.Join(PrettyList(s.directories), "\n")
 }
 
 func (s *Storage) load() error {

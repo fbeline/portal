@@ -28,7 +28,7 @@ func main() {
 			Aliases: []string{"l"},
 			Usage:   "list stored directories",
 			Action: func(c *cli.Context) error {
-				fmt.Println(s.List())
+				fmt.Println(s.ToString())
 				return nil
 			},
 		},
