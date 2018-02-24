@@ -1,9 +1,9 @@
 # [p]ortal
 
 portal is a file system navigation tool inspired on python project [autojump](https://github.com/wting/autojump).
-portal record your terminal usage and fast jump to your require location.
+portal record your terminal usage and fast jump to your desired location.
 
-![portal-usage](https://user-images.githubusercontent.com/5730881/36635478-12970294-1994-11e8-9bb2-ef1e0b6cfc06.gif)
+![portal-demo](https://user-images.githubusercontent.com/5730881/36635707-9abe098e-1998-11e8-970c-983e22e3289d.gif)
 
 ## prerequisite
 
@@ -68,7 +68,6 @@ for more information:
 ```
 portal --help
 ```
-
 
 ## License
 MIT
