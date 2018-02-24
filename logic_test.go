@@ -40,3 +40,10 @@ func TestEmptyMatch(t *testing.T) {
 	_, err := Match(directories, "")
 	assert.Error(t, err, "directory not found!")
 }
+
+func TestPrettyList(t *testing.T) {
+	directories := genDirectories()
+	res := PrettyList(directories)
+	expected := []string{"/home/user/Downloads : 1", "/home/user/Documents : 2"}
+	assert.Equal(t, expected, res)
+}
