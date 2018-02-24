@@ -21,18 +21,19 @@ func Match(directories map[string]dir, path string) (string, error) {
 	}
 }
 
-func (d *Disk) Save(path string) {
+func Compute(directories map[string]dir, path string) {
 	path = strings.TrimSpace(path)
 	tokens := strings.Split(path, "/")
 	name := tokens[len(tokens)-1]
-	nd, ok := d.directories[path]
+	nd, ok := directories[path]
 	if ok {
 		nd.Score = nd.Score + 1
-		d.directories[path] = nd
+		directories[path] = nd
 	} else {
-		d.directories[path] = dir{path, name, 0}
+		directories[path] = dir{path, name, 0}
 	}
 }
+
 func storagePath() string {
 	usr, _ := user.Current()
 	return usr.HomeDir + "/.local/share/portal.gob"

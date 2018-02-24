@@ -25,7 +25,7 @@ func NewStorage() *Disk {
 }
 
 func (d *Disk) Add(path string) {
-	d.Save(path)
+	Compute(d.directories, path)
 	d.persist()
 }
 
