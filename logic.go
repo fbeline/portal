@@ -22,6 +22,16 @@ func Match(directories map[string]dir, path string) (string, error) {
 	}
 }
 
+func MatchChild(directories map[string]dir, local string, path string) (string, error) {
+	children := make(map[string]dir)
+	for k := range directories {
+		if strings.Contains(k, local) {
+			children[k] = directories[k]
+		}
+	}
+	return Match(children, path)
+}
+
 func Compute(directories map[string]dir, path string) {
 	path = strings.TrimSpace(path)
 	tokens := strings.Split(path, "/")

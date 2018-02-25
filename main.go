@@ -32,6 +32,18 @@ func main() {
 				return nil
 			},
 		},
+		{
+			Name:    "child",
+			Aliases: []string{"l"},
+			Usage:   "jump to child directory",
+			Action: func(c *cli.Context) error {
+				path, err := MatchChild(s.directories, c.Args().First(), c.Args().Get(1))
+				if err == nil {
+					fmt.Print(path)
+				}
+				return err
+			},
+		},
 	}
 
 	app.Action = func(c *cli.Context) error {
