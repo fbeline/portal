@@ -34,7 +34,7 @@ func main() {
 		},
 		{
 			Name:    "child",
-			Aliases: []string{"l"},
+			Aliases: []string{"c"},
 			Usage:   "jump to child directory",
 			Action: func(c *cli.Context) error {
 				path, err := MatchChild(s.directories, c.Args().First(), c.Args().Get(1))
