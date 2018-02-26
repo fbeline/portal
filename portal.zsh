@@ -1,5 +1,14 @@
 function p() {
-	  local output="$(portal $1)"
+    local output="$(portal $1)"
+    outputportal output
+}
+
+function pc() {
+    local output="$(portal c $(pwd) $1)"
+    outputportal output
+}
+
+function outputportal() {
     if [[ -d "${output}" ]]; then
         cd "${output}"
     else
@@ -10,3 +19,4 @@ function p() {
 }
 
 preexec() { portal s $(pwd) }
+
