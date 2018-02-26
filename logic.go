@@ -10,7 +10,7 @@ import (
 func Match(directories map[string]dir, path string) (string, error) {
 	result := dir{Score: -1}
 	for k := range directories {
-		if isValidMatch(path, k, directories[k].Score, result.Score) {
+		if isValidMatch(path, directories[k].Name, directories[k].Score, result.Score) {
 			result = directories[k]
 		}
 	}
