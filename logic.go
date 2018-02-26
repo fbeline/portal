@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"os/user"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -51,6 +52,7 @@ func PrettyList(directories map[string]dir) []string {
 		line := el.Path + " : " + strconv.Itoa(el.Score)
 		res = append(res, line)
 	}
+	sort.Strings(res)
 	return res
 }
 
