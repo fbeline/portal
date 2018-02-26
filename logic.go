@@ -39,7 +39,7 @@ func Compute(directories map[string]dir, path string) {
 	name := tokens[len(tokens)-1]
 	nd, ok := directories[path]
 	if ok {
-		nd.Score = nd.Score + 1
+		nd.Score++
 		directories[path] = nd
 	} else {
 		directories[path] = dir{path, name, 1}
