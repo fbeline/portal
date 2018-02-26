@@ -18,8 +18,18 @@ go get github.com/fbeline/portal
 ```
 copy the following code into your .bashrc or .zshrc file.
 
-- [bash](portal.sh)
-- [zsh](portal.zsh)
+### bash
+
+```bash
+source $GOPATH/src/github.com/fbeline/portal/portal.sh
+```
+
+### zsh
+
+```bash
+source $GOPATH/src/github.com/fbeline/portal/portal.zsh
+```
+*make sure that you have $GOPATH properly configured.*
 
 ## Usage
 
