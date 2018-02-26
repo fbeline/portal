@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/stretchr/testify/assert"
-	"sort"
 	"testing"
 )
 
@@ -54,8 +53,6 @@ func TestChildMatch(t *testing.T) {
 func TestPrettyList(t *testing.T) {
 	directories := genDirectories()
 	res := PrettyList(directories)
-	sort.Strings(res)
-	expected := []string{"/home/user/Downloads : 1", "/home/user/Documents : 2"}
-	sort.Strings(expected)
+	expected := []string{"/home/user/Documents : 2", "/home/user/Downloads : 1"}
 	assert.Equal(t, expected, res)
 }
