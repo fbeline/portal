@@ -11,7 +11,7 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "portal"
 	app.Usage = "With it, you can create your own portals."
-	app.Version = "0.0.1"
+	app.Version = "0.1.0"
 
 	app.Commands = []cli.Command{
 		{
