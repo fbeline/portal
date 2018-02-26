@@ -1,6 +1,6 @@
 # [p]ortal [![Build Status](https://travis-ci.org/fbeline/portal.svg?branch=master)](https://travis-ci.org/fbeline/portal)
 
-portal is a file system navigation tool inspired on python project [autojump](https://github.com/wting/autojump).
+portal is a file system navigation tool inspired by [autojump](https://github.com/wting/autojump).
 
 portal record your terminal usage and fast jump to your desired location.
 
@@ -16,28 +16,34 @@ portal record your terminal usage and fast jump to your desired location.
 ```
 go get github.com/fbeline/portal
 ```
-copy the following code into your bashrc or zshrc file.
+copy the following code into your .bashrc or .zshrc file.
 
 - [bash](portal.sh)
 - [zsh](portal.zsh)
 
 ## Usage
 
-*Directories must be visited first to portal save it.*
+*Directories must be visited first before you are able to jump*
 
-Jump to a directory that contains `down`
-
-```
-p down
-```
-
-Jump to a Child directory that contains `src`
+Jump to a directory that contains `doc`
 
 ```
-pc src
+p doc
 ```
 
-List saved paths and the relative scores
+Jump to a Child directory that contains `test`.
+
+```
+pc test
+```
+
+Return the matched directory path without jumping to it.
+
+```
+portal doc
+```
+
+List saved paths and the relative scores.
 
 ```
 portal l
@@ -46,7 +52,7 @@ portal l
 for more information:
 
 ```
-portal --help
+portal -h
 ```
 
 ## License
