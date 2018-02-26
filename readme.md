@@ -23,9 +23,9 @@ copy the following code into your .bashrc or .zshrc file.
 
 ## Usage
 
-*Directories must be visited first before you are able to jump*
+*Directories must be visited first before you are able to jump.*
 
-Jump to a directory that contains `doc`
+Jump to a directory that contains `doc`.
 
 ```
 p doc
@@ -49,7 +49,7 @@ List saved paths and the relative scores.
 portal l
 ```
 
-for more information:
+for more information.
 
 ```
 portal -h
