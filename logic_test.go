@@ -42,6 +42,15 @@ func TestEmptyMatch(t *testing.T) {
 	assert.Error(t, err, "directory not found!")
 }
 
+func TestChildMatch(t *testing.T) {
+	directories := genDirectories()
+	Compute(directories, "/home/user/Documents/foo")
+	Compute(directories, "/home/user/Downloads/foo")
+	Compute(directories, "/home/user/Downloads/foo")
+	res, _ := MatchChild(directories, "/home/user/Documents", "foo")
+	assert.Equal(t, "/home/user/Documents/foo", res)
+}
+
 func TestPrettyList(t *testing.T) {
 	directories := genDirectories()
 	res := PrettyList(directories)

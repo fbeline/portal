@@ -11,7 +11,7 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "portal"
 	app.Usage = "With it, you can create your own portals."
-	app.Version = "0.0.1"
+	app.Version = "0.1.0"
 
 	app.Commands = []cli.Command{
 		{
@@ -30,6 +30,18 @@ func main() {
 			Action: func(c *cli.Context) error {
 				fmt.Println(s.ToString())
 				return nil
+			},
+		},
+		{
+			Name:    "child",
+			Aliases: []string{"c"},
+			Usage:   "jump to child directory",
+			Action: func(c *cli.Context) error {
+				path, err := MatchChild(s.directories, c.Args().First(), c.Args().Get(1))
+				if err == nil {
+					fmt.Print(path)
+				}
+				return err
 			},
 		},
 	}

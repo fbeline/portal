@@ -16,39 +16,10 @@ portal record your terminal usage and fast jump to your desired location.
 ```
 go get github.com/fbeline/portal
 ```
-copy the following code to your bashrc or zshrc file.
+copy the following code into your bashrc or zshrc file.
 
-### bash
-
-```bash
-function p() {
-	  local output="$(portal $1)"
-    if [[ -d "${output}" ]]; then
-        cd "${output}"
-    else
-        echo "portal: directory '${@}' not found"
-        echo "Try \`portal --help\` for more information."
-        false
-    fi
-}
-PROMPT_COMMAND='portal s $(pwd)'
-```
-
-### zsh
-
-```bash
-function p() {
-	  local output="$(portal $1)"
-    if [[ -d "${output}" ]]; then
-        cd "${output}"
-    else
-        echo "portal: directory '${@}' not found"
-        echo "Try \`portal --help\` for more information."
-        false
-    fi
-}
-preexec() { portal s $(pwd) }
-```
+- [bash](portal.sh)
+- [zsh](portal.zsh)
 
 ## Usage
 
@@ -58,6 +29,12 @@ Jump to a directory that contains `down`
 
 ```
 p down
+```
+
+Jump to a Child directory that contains `src`
+
+```
+pc src
 ```
 
 List saved paths and the relative scores

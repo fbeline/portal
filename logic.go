@@ -10,7 +10,7 @@ import (
 func Match(directories map[string]dir, path string) (string, error) {
 	result := dir{Score: -1}
 	for k := range directories {
-		if isValidMatch(path, k, directories[k].Score, result.Score) {
+		if isValidMatch(path, directories[k].Name, directories[k].Score, result.Score) {
 			result = directories[k]
 		}
 	}
@@ -20,6 +20,16 @@ func Match(directories map[string]dir, path string) (string, error) {
 	} else {
 		return result.Path, nil
 	}
+}
+
+func MatchChild(directories map[string]dir, local string, path string) (string, error) {
+	children := make(map[string]dir)
+	for k := range directories {
+		if strings.Contains(k, local) {
+			children[k] = directories[k]
+		}
+	}
+	return Match(children, path)
 }
 
 func Compute(directories map[string]dir, path string) {
